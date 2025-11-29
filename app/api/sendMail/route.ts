@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
       port: 465,
-      secure: true, // Usa SSL con puerto 465
+      secure: true,
       auth: {
         user: userMail,
         pass: passMail,
