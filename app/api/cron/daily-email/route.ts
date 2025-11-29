@@ -5,6 +5,7 @@ const DAILY_RECIPIENTS = [
   "cliente1@gmail.com",
   "cliente2@hotmail.com",
   "admin@tudominio.com",
+  "nicolasporras0910@gmail.com"
 
 ];
 
