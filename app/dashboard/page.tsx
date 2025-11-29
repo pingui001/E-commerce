@@ -193,7 +193,7 @@ export default function DashboardPage() {
           {products.map((product) => (
             <Card key={product._id} className={styles.card}>
               <div className={styles.imageWrapper}>
-                <Image src={product.image} alt={product.name} fill className={styles.productImage} />
+                <Image src={product.image} alt={product.name} fill className={styles.productImage} unoptimized={true} />
               </div>
 
               <CardBody className={styles.cardBody}>
