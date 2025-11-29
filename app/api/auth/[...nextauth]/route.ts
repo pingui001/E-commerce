@@ -38,8 +38,8 @@ export const authOptions: NextAuthOptions = {
     }),
 
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
 
@@ -52,19 +52,19 @@ export const authOptions: NextAuthOptions = {
   },
 
   callbacks: {
-
     async redirect({ url, baseUrl }) {
       try {
         if (url.startsWith("/")) return `${baseUrl}${url}`;
         const requested = new URL(url);
         if (requested.origin === baseUrl) return url;
-      } catch (e) {
+      } catch {
       }
       return baseUrl;
     },
+
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.sub as string;
+      if (token.sub) {
+        session.user.id = token.sub;
       }
       return session;
     },
